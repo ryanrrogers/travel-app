@@ -7,14 +7,6 @@ var amadeus = new Amadeus({
 	clientSecret: process.env.CLIENT_SECRET
 })
 
-// amadeus.shopping.hotelOffers.get({
-// 	cityCode: 'NYC'
-// }).then(function(response){
-// 	console.log(response.data)
-// }).catch(function(responseError){
-// 	console.log(responseError.code)
-// })
-
 amadeus.shopping.flightOffersSearch.get({
     originLocationCode: 'SYD',
     destinationLocationCode: 'BKK',
