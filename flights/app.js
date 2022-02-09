@@ -1,3 +1,1 @@
-let flights = require('./classes/flights')
-
-flights.test()
+let flights = require('./functions/flights')
