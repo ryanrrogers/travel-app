@@ -1,4 +1,4 @@
-require('dotenv').config({path: './includes/KEYS.env'})
+require('dotenv').config({path: '../includes/KEYS.env'})
 
 let Amadeus = require('amadeus')
 
