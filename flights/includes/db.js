@@ -5,14 +5,8 @@ var mysql = require('mysql')
 var connection = mysql.createConnection({
     host : 'sql5.freemysqlhosting.net',
     user : process.env.DB_ID,
-    password : process.env.DB_SECRET
+    password : process.env.DB_SECRET,
+    database : process.env.DB_ID
 })
 
-connection.connect(function(err) {
-    if (err) {
-        console.log('Error connecting: ' + err.stack)
-        return
-    }
-
-    console.log('Connected as id ' + connection.threadId)
-})
+module.exports = connection

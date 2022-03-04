@@ -1,5 +1,6 @@
 let amadeus = require('./apiConnection.js')
-//let connection = require('../includes/db.js')
+let connection = require('../includes/db.js');
+const { connect } = require('../includes/db.js');
 
 let flightSearch = (origin, destination, date, ticketsAdult) => {
     let response = amadeus.shopping.flightOffersSearch.get({
@@ -20,31 +21,24 @@ let flightSearch = (origin, destination, date, ticketsAdult) => {
     return response
 }
 
-// async function select (origin, destination, date, ticketsAdult) {
-//     flights = await flightSearch(origin, destination, date, ticketsAdult)
-
-//     for (const [key, value] of Object.entries(flights[1])) {
-//         console.log(`${key} ${value}`)
-//     }
-// }
-
 async function dbFlights (origin, destination, date, ticketsAdult) {
     flights = await flightSearch(origin, destination, date, ticketsAdult)
+    
+    airline = `'${flights[1].validatingAirlineCodes}'`
+    price = flights[1].price.grandTotal
+    seatsAvailable = flights[1].numberOfBookableSeats
+    oneWay = flights[1].oneWay
 
-    var i = 1
-    while ( i < 11) {
-        airline = flights[i].validatingAirlineCodes
-        price = flights[i].price.grandTotal
-        seatsAvailable = flights[i].numberOfBookableSeats
-        oneWay = flights[i].oneWay
+    connection.connect(function(err) {
+        if (err) throw err;
+        console.log('connected!')
+        var sql = `INSERT INTO flights (airline, price, seats, one_way) VALUES (${airline}, ${price}, ${seatsAvailable}, ${oneWay})`
+        connection.query(sql, function (err, result){
+            if (err) throw err
+            console.log('record inserted')
+        })
+    })
 
-        console.log('Flight #' + i)
-        console.log('Airline: ' + airline)
-        console.log('Price: ' + price)
-        console.log('Seats Available: ' + seatsAvailable)
-        console.log('One Way Trip?: ' + oneWay + '\n')
-        i++
-    }
 }
 
 module.exports = {flightSearch, dbFlights}
