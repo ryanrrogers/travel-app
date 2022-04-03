@@ -1,0 +1,44 @@
+[
+    {
+        "corr-lon":"56789",
+
+        "corr-lat": "234567",
+
+        "weather-id": "803",
+
+        "id": "45677",
+
+        "weather-main": "Clouds",
+
+        "weather-description": "broken clouds",
+
+        "base-stations-main-temp":"9.02",
+
+        "base-stations-main-temp-feels_like": "6.74",
+
+        "base-stations-main-temp_min": "9.02",
+
+        "base-stations-temp_max": "9.02",
+
+        "base-stations-pressure": "1018",
+
+        "base-stations-humidity": "49",
+
+        "visibility": "1000",
+
+        "wind-speed": "4.12",
+
+        "wind-deg": "150",
+
+        "clouds-all": "75",
+
+        "sunrise": "1645759550",
+
+        "sunset": "1645800208", 
+
+        "timezone": "12600"
+
+
+
+    }
+]
