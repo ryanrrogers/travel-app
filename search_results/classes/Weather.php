@@ -25,7 +25,7 @@ class Weather
     public static function getAll($conn)
     {
         $sql = "SELECT *
-                FROM Weather
+                FROM weather
                 ORDER BY weatherid;";
         
         $results = $conn->query($sql);
