@@ -26,7 +26,7 @@ class Weather
     {
         $sql = "SELECT *
                 FROM Weather
-                ORDER BY id;";
+                ORDER BY weatherid;";
         
         $results = $conn->query($sql);
 
