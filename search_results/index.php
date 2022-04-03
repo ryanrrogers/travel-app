@@ -19,7 +19,7 @@ $weather = Weather::getAll($conn);
                     <li><?= htmlspecialchars($weather_instance['weathermain']); ?></li>
                     <li><?= htmlspecialchars($weather_instance['weatherdescription']); ?></li>
                     <li><?= htmlspecialchars($weather_instance['basestationshumidity']); ?></li>
-                    <li><?= htmlspecialchars($weather_instance['basestationsmaintempx']); ?></li>
+                    <li><?= htmlspecialchars($weather_instance['basestationsmaintemp']); ?></li>
                 </ol>
             </li>
         <?php endforeach; ?>
