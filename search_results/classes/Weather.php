@@ -11,7 +11,7 @@ class Weather
     public $basestationsmaintempfeels_like;
     public $basestationsmaintemp_min;
     public $basestationsmaintemp_max;
-    public $basestationpressure;
+    public $basestationspressure;
     public $basestationshumidity;
     public $visibility;
     public $windspeed;
