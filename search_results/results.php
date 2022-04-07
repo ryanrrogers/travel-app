@@ -1,12 +1,12 @@
 <?php
 $connect = mysqli_connect("sql5.freemysqlhosting.net", "sql5476262", "ubHt8arqDy", "sql5476262"); // use this when get sql hosting site back up. uncomment it
 //$connect = mysqli_connect("localhost", "root", "", "weather");//localhost connection since other expired
-$result = mysqli_query($connect,"SELECT * FROM weather, hotels, flights");
+$result = mysqli_query($connect,"SELECT * FROM weather, hotels, flights, restaurant");
 ?>
 <!DOCTYPE html>
 <html>
  <head>
- <title> Retrive data</title>
+ <title> Retrieve data</title>
  </head>
 <body>
 <?php
@@ -22,12 +22,13 @@ if (mysqli_num_rows($result) > 0) {
     <th>|ID|</th>
     <th>|Hotel Rating|</th>
     <th>|Airline|</th>
+    <th>|Restaurant|</th>
   </tr>
 <?php
 $i=0;
 if($row = mysqli_fetch_array($result)) {
 ?>
-<body>Information on Hotel Bliss </body>
+<body>Table of Results</body>
 <tr>
     <td><?php echo $row["corrlon"]; ?></td>
     </br> </br>
@@ -37,6 +38,7 @@ if($row = mysqli_fetch_array($result)) {
     <td><?php echo $row["id"]; ?></td>
     <td><?php echo $row["Rating"]; ?></td>
     <td><?php echo $row["airline"]; ?></td>
+    <td><?php echo $row["name"]; ?></td>
 </tr>
 <?php
 $i++;
