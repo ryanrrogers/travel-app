@@ -1,7 +1,7 @@
 <?php
 $apiKey = "98196938f3021ed1a72d700a33ef4d42";
-$cityId = "833";
-$googleApiUrl = "http://api.openweathermap.org/data/2.5/weather?id=" . $cityId . "&lang=en&units=metric&APPID=" . $apiKey;
+$cityName = "London";
+$googleApiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" . $cityName. "&appid=" . $apiKey;
 
 $ch = curl_init();
 
