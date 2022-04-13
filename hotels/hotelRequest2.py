@@ -10,7 +10,7 @@ from MyApiKey import get_api_key
 key = get_api_key()
 url = "https://hotels4.p.rapidapi.com/properties/list"
 
-sortBy = "PRICE"
+sortBy = "STAR_RATING"
 pageSize = 5
 minPrice = "200"
 maxPrice = "300"
