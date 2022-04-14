@@ -1,9 +1,3 @@
-<?php
-require 'header.php';
-require 'connection.php'
-?>
-
-
 <style>
     .centered-card{
         display: flex;
@@ -33,7 +27,3 @@ require 'connection.php'
 
     </form>
 </div>
-
-<?php
-require 'footer.php';
-?>
