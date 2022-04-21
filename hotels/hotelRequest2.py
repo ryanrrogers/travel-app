@@ -13,7 +13,9 @@ url = "https://hotels4.p.rapidapi.com/properties/list"
 sortBy = "STAR_RATING"
 pageSize = 5
 minPrice = "200"
-maxPrice = "300"
+maxPrice = "500"
+cityName = "new york"
+
 # format date on input
 
 def obtainQuery(cityID, minPrice, maxPrice, sortBy):
@@ -44,11 +46,11 @@ def obtainQuery(cityID, minPrice, maxPrice, sortBy):
         hotelRating = (json_data["data"]["body"]["searchResults"]["results"][i]["starRating"])
         hotelAddress = (json_data["data"]["body"]["searchResults"]["results"][i]["address"]["streetAddress"])
         nightlyCost = (json_data["data"]["body"]["searchResults"]["results"][i]["ratePlan"]["price"]["current"])
-        val = (hotelName, hotelRating, hotelAddress, nightlyCost)
+        val = (hotelName, hotelRating, hotelAddress, nightlyCost, cityName)
         i += 1
         connect_to_db(val)
 
-id = getLocation()
+id, cityName = getLocation()
 
 def connect_to_db(val):
     try:
@@ -60,7 +62,7 @@ def connect_to_db(val):
 
         mycursor = db.cursor()
 
-        sql = "INSERT INTO sql5476262.hotels(Name,Rating,Address,Price) VALUES (%s, %s, %s, %s)"
+        sql = "INSERT INTO sql5476262.hotels(Name,Rating,Address,Price,cityName) VALUES (%s, %s, %s, %s, %s)"
         
         mycursor.execute(sql, val)
         db.commit()
@@ -72,5 +74,6 @@ def connect_to_db(val):
 
 def close_db(db):
     db.close()
+
 
 obtainQuery(id, minPrice, maxPrice, sortBy)

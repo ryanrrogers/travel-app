@@ -2,11 +2,24 @@
 
 require 'header.php';
 require 'connection.php';
+?>
 
+<style>
+    .center{
+        margin: auto;
+        width: 60%;
+        border: 5px #FFFF00;
+        padding: 10x;
+    }
+</style>
+
+<?php
 $conn = getDB();
+# $city = $_POST['destination_city']; get the city from the form
 
 $sql = "Select *
-        From sql5476262.hotels";
+        From sql5476262.hotels
+        WHERE cityName = 'chicago'";
 
 $results = mysqli_query($conn, $sql);
 
@@ -20,8 +33,10 @@ else
 }
 ?>
 
+
 <?php foreach ($m_data as $data): ?>
-    <div style:"container-fluid">
+
+    <div class:"center">
         <h3><?= $data['Name']?></h3>
         <p>Price:<?= $data['Price']?></p>
         <p>Address: <?= $data['Address'] ?></p>

@@ -1,8 +1,6 @@
 import requests
 import json
 
-locationName = input("What is the name of your destination?")
-
 def getLocation():
     locationName = input("What is the name of your destination?")
     url = "https://hotels4.p.rapidapi.com/locations/search"
@@ -17,6 +15,6 @@ def getLocation():
     response = requests.request("GET", url, headers=headers, params=querystring)
     json_data = response.json()
     cityID = json_data["suggestions"][0]["entities"][0]["destinationId"]
-    return cityID
+    return cityID, locationName
 
 getLocation()
