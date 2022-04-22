@@ -3,8 +3,6 @@
 require 'includes/header.php';
 require 'includes/connection.php';
 
-$conn = getDB();
-
 $sql = "Select *
         From sql5476262.flights";
 

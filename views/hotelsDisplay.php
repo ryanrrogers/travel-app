@@ -14,7 +14,6 @@ require 'includes/connection.php';
 </style>
 
 <?php
-$conn = getDB();
 # $city = $_POST['destination_city']; get the city from the form
 
 $sql = "Select *
