@@ -11,7 +11,7 @@ if(isset($_POST['submit'])) {
 	if (mysqli_query($conn, $sql)) {
 		echo "New record added!";
 	} else {
-		echo "Error: " . sql . ":-" . mysqli_error($conn);
+		echo "Error: " . $sql . ":-" . mysqli_error($conn);
 	}
 	mysqli_close($conn);
 }
