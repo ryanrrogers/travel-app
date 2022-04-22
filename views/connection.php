@@ -1,22 +1,16 @@
 <?php
 
-function getDB()
-{
-    $host = "sql5.freemysqlhosting.net";
-    $name = "sql5476262";
-    $user = "sql5476262";
-    $pass = "ubHt8arqDy";
+    $servername = "sql5.freemysqlhosting.net";
+    $username = "sql5476262";
+    $password = "ubHt8arqDy";
+    $dbname = "sql5476262";
+    
 
 
-$conn = mysqli_connect($host, $name, $pass, $user);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-if(mysqli_connect_error())
-{
-    echo mysqli_connect_error();
-    exit;
+if(!$conn) {
+    die('Could not connect to MySQL Server: ' .mysql_error());
 }
 
-return $conn;
-
-}
 ?>
