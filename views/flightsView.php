@@ -1,7 +1,7 @@
 <?php
 
-require 'header.php';
-require 'connection.php';
+require 'includes/header.php';
+require 'includes/connection.php';
 
 $conn = getDB();
 
@@ -29,4 +29,4 @@ else
     </div>
 <?php endforeach ?>
 
-<?php require 'footer.php'; ?>
+<?php require 'includes/footer.php'; ?>

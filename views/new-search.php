@@ -1,6 +1,6 @@
 <?php
-require 'header.php';
-require 'HomeForm.php';
-require 'submit.php';
-require 'footer.php';
+require 'includes/header.php';
+require 'includes/HomeForm.php';
+require 'includes/submit.php';
+require 'includes/footer.php';
 ?>
