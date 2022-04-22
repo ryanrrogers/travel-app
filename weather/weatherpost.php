@@ -16,7 +16,7 @@ $result = mysqli_query($connect,"SELECT * FROM weather, hotels");
         }
     </style>
     <div class='box'>
-          <h1 class="temp">weather-description</h1>
+          <h1 class="temp">Weather Description</h1>
         </div>
       </div>
       <span></span>
