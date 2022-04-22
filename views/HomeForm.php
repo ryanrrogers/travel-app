@@ -9,21 +9,21 @@
 <div class="centered-card">
     <form method="post">
         <label for="departure_city">Departure City </label>
-        <input type="text" id="departure_city"><br><br>
+        <input type="text" id="departureCity" name="departureCity"><br><br>
 
         <label for="destination">Destination </label>
-        <input type="text" id="destination"><br><br>
+        <input type="text" id="destinationCity" name="arrivalCity"><br><br>
 
         <label for="departure_date">Depature Date </label>
-        <input type="date" id="departure_date"><br><br>
+        <input type="date" id="arrivalDate" name="arrivalDate"><br><br>
 
         <label for="return_date">Return Date </label>
-        <input type="date" id="return_date"><br><br>
+        <input type="date" id="leaveDate" name="leaveDate"><br><br>
 
         <label for="max_price">Maximum Hotel Price </label>
-        <input type="text" id="max_price"><br><br>
+        <input type="text" id="max_price" name="maxPrice"><br><br>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" name="submit">
 
     </form>
     <!-- Need to add redirect to first pages -->
