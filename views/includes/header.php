@@ -19,10 +19,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Flights</a>
-        <a class="nav-link" href="#">Hotels</a>
-        <a class="nav-link" href="#">Restaurants</a>
-        <a class="nav-link" href="#">Weather</a>
+        <a class="nav-link active" aria-current="page" href="/views/flightsDisplay.php">Flights</a>
+        <a class="nav-link" href="/views/hotelsDisplay.php">Hotels</a>
+        <a class="nav-link" href="/views/restaurantDisplay.php">Restaurants</a>
+        <a class="nav-link" href="/views/weatherDisplay.php">Weather</a>
       </div>
     </div>
   </div>
