@@ -18,13 +18,29 @@ else
 }
 ?>
 
-<?php foreach ($m_data as $data): ?>
-    <div style:"container-fluid">
-        <h3><?= $data['airline']?></h3>
-        <p>Price:<?= $data['price']?></p>
-        <p>Seats Available: <?= $data['seats'] ?></p>
-        <p>One Way:<?= $data['one_way']?></p>
-    </div>
-<?php endforeach ?>
+<h1>Flights</h1>
+
+<table class ="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Airline</th>
+            <th scope="col">Price</th>
+            <th scope="col">Seats Available</th>
+            <th scope="col">One Way</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($m_data as $data): ?>
+            <tr>
+                <th scope="row"></th>
+                <td><?= $data['airline']?></td>
+                <td>$<?= $data['price']?></td>
+                <td><?= $data['seats'] ?></td>
+                <td><?= $data['one_way']?></td>
+            </tr>
+        <?php endforeach ?>
+    </tbody>
+</table>
 
 <?php require 'includes/footer.php'; ?>
