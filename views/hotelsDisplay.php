@@ -2,9 +2,15 @@
 
 require 'includes/header.php';
 require 'includes/connection.php';
+require 'includes/submit.php';
 
+$cityName = $arrivalCity;
 $sql = "Select *
-        From sql5476262.hotels";
+        From sql5476262.hotels
+        Where cityName= '". mysqli_real_escape_string($conn, $cityName) ."'
+        ORDER BY id DESC
+        LIMIT 5
+        ";
 
 $results = mysqli_query($conn, $sql);
 
@@ -16,6 +22,7 @@ else
 {
     $m_data = mysqli_fetch_all($results, MYSQLI_ASSOC);
 }
+
 ?>
 
 <h1>Hotels</h1>

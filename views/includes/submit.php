@@ -1,5 +1,8 @@
 <?php
 include_once 'connection.php';
+require 'url.php';
+
+$arrivalCity = "";
 if(isset($_POST['submit'])) {
 	$departureCity = $_POST['departureCity'];
 	$arrivalCity = $_POST['arrivalCity'];
@@ -14,5 +17,8 @@ if(isset($_POST['submit'])) {
 		echo "Error: " . $sql . ":-" . mysqli_error($conn);
 	}
 	mysqli_close($conn);
+
+	redirect("views/weatherDisplay");
 }
+
 ?>
