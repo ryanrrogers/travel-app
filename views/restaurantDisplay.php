@@ -57,4 +57,7 @@ else
     </tbody>
 </table>
 
+<br></br>
+<input type="button" name="next" value="Search for a new trip" onclick="location.href='/Travel-App/views/new-search.php'"
+
 <?php require 'includes/footer.php'; ?>

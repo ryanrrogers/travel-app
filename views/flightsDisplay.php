@@ -43,4 +43,7 @@ else
     </tbody>
 </table>
 
+<br></br>
+<input type="button" name="next" value="Check out Restaurants" onclick="location.href='/Travel-App/views/restaurantDisplay.php'"
+
 <?php require 'includes/footer.php'; ?>
