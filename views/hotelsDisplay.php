@@ -4,23 +4,23 @@ require 'includes/header.php';
 require 'includes/connection.php';
 require 'includes/submit.php';
 
-$cityName = $arrivalCity;
 $sql = "Select *
-        From sql5476262.hotels
-        Where cityName= '". mysqli_real_escape_string($conn, $cityName) ."'
-        ORDER BY id DESC
-        LIMIT 5
+        From sql5476262.hotels h
+        inner join sql5476262.TempPerms t
+        on h.cityName = t.arrivalCity
+        order by t.primKey desc
+        Limit 5
         ";
 
-$results = mysqli_query($conn, $sql);
+$result = mysqli_query($conn, $sql);
 
-if($results === false)
+if($result === false)
 {
     echo mysqli_error($conn);
 }
 else
 {
-    $m_data = mysqli_fetch_all($results, MYSQLI_ASSOC);
+    $m_data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 
 ?>
