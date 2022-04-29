@@ -39,7 +39,6 @@ else
     <tbody>
         <?php foreach ($m_data as $data): ?>
             <tr>
-                <th scope="row"></th>
                 <td><?= $data['Address']?></td>
                 <td><?= $data['Name'] ?></td>
                 <td><?= $data['Price']?></td>

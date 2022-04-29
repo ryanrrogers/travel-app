@@ -20,9 +20,6 @@
         <label for="return_date">Return Date </label>
         <input type="date" id="leaveDate" name="leaveDate"><br><br>
 
-        <label for="max_price">Maximum Hotel Price </label>
-        <input type="text" id="max_price" name="maxPrice"><br><br>
-
         <input type="submit" value="Submit" name="submit">
 
     </form>

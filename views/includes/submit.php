@@ -8,9 +8,8 @@ if(isset($_POST['submit'])) {
 	$arrivalCity = $_POST['arrivalCity'];
 	$leaveDate = $_POST['leaveDate'];
 	$arrivalDate = $_POST['arrivalDate'];
-	$maxPrice = $_POST['maxPrice'];
-	$sql = "INSERT INTO TempPerms (departureCity, arrivalCity, leaveDate, arrivalDate, maxPrice) 
-			VALUES ('$departureCity', '$arrivalCity', '$leaveDate', '$arrivalDate', '$maxPrice')";
+	$sql = "INSERT INTO TempPerms (departureCity, arrivalCity, leaveDate, arrivalDate) 
+			VALUES ('$departureCity', '$arrivalCity', '$leaveDate', '$arrivalDate')";
 	if (mysqli_query($conn, $sql)) {
 		echo "New record added!";
 	} else {

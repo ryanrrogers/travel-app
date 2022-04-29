@@ -4,11 +4,11 @@ require 'includes/header.php';
 require 'includes/connection.php';
 
 $sql = "SELECT *
-        FROM sql5476262.hotels h
+        FROM sql5476262.weather w
         INNER JOIN sql5476262.TempPerms t
-        ON h.cityName = t.arrivalCity
+        ON w.cityName = t.arrivalCity
         ORDER BY t.primKey DESC
-        LIMIT 5
+        LIMIT 1
         ";
 
 $results = mysqli_query($conn, $sql);
@@ -28,10 +28,10 @@ else
 <table class ="table">
     <thead>
         <tr>
-            <th scope="col">Temperature</th>
-            <th scope="col">Description</th>
-            <th scope="col">Wind Speed</th>
-            <th scope="col">Wind Degree</th>
+            <th scope="col">Temperature (F)</th>
+            <th scope="col">Weather Description</th>
+            <th scope="col">Weather Details</th>
+            <th scope="col">Humidity</th>
         </tr>
     </thead>
     <tbody>
@@ -39,8 +39,8 @@ else
             <tr>
                 <td><?= $data['basestationsmaintemp']?></td>
                 <td><?= $data['weathermain']?></td>
-                <td><?= $data['windspeed']?></td>
-                <td><?= $data['winddeg']?></td>
+                <td><?= $data['weatherdescription']?></td>
+                <td><?= $data['humidity']?></td>
             </tr>
         <?php endforeach ?>
     </tbody>
@@ -48,5 +48,6 @@ else
 
 <br></br>
 <input type="button" name="next" value="Check out Hotels" onclick="location.href='/Travel-App/views/hotelsDisplay.php'"
+
 
 <?php require 'includes/footer.php'; ?>
