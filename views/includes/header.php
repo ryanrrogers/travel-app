@@ -13,13 +13,13 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="http://localhost:8080/Travel-App/views/new-search.php">travel.io</a>
+    <a class="navbar-brand" href="/Travel-App/views/new-search.php">travel.io</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="http://localhost:8080/Travel-App/views/flightsDisplay.php">Flights</a>
+        <a class="nav-link active" aria-current="page" href="/Travel-App/views/flightsDisplay.php">Flights</a>
         <a class="nav-link" href="/Travel-App/views/hotelsDisplay.php">Hotels</a>
         <a class="nav-link" href="/Travel-App/views/restaurantDisplay.php">Restaurants</a>
         <a class="nav-link" href="/Travel-App/views/weatherDisplay.php">Weather</a>
