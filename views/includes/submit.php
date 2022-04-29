@@ -18,7 +18,8 @@ if(isset($_POST['submit'])) {
 	}
 	mysqli_close($conn);
 
-	redirect("views/weatherDisplay");
+	redirect("/Travel-App/views/weatherDisplay");
+
 }
 
 ?>
