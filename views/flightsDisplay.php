@@ -3,8 +3,12 @@
 require 'includes/header.php';
 require 'includes/connection.php';
 
-$sql = "Select *
-        From sql5476262.flights";
+$sql = "SELECT *
+        FROM sql5476262.flights f
+        INNER JOIN sql5476262.TempPerms t
+        ON f.id = t.primKey
+        WHERE t.primKey = (SELECT MAX(primKey) FROM TempPerms)
+        ORDER BY t.primKey DESC";
 
 $results = mysqli_query($conn, $sql);
 
@@ -23,7 +27,6 @@ else
 <table class ="table">
     <thead>
         <tr>
-            <th scope="col">#</th>
             <th scope="col">Airline</th>
             <th scope="col">Price</th>
             <th scope="col">Seats Available</th>
@@ -32,12 +35,17 @@ else
     </thead>
     <tbody>
         <?php foreach ($m_data as $data): ?>
+            <?php
+            $oneWay = "Yes";
+            if ($data['one_way'] === 0) {
+                $oneWay = "No";
+            }
+        ?>
             <tr>
-                <th scope="row"></th>
                 <td><?= $data['airline']?></td>
                 <td>$<?= $data['price']?></td>
                 <td><?= $data['seats'] ?></td>
-                <td><?= $data['one_way']?></td>
+                <td><?= $oneWay ?></td>
             </tr>
         <?php endforeach ?>
     </tbody>
