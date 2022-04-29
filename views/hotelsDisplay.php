@@ -4,12 +4,12 @@ require 'includes/header.php';
 require 'includes/connection.php';
 require 'includes/submit.php';
 
-$sql = "Select *
-        From sql5476262.hotels h
-        inner join sql5476262.TempPerms t
-        on h.cityName = t.arrivalCity
-        order by t.primKey desc
-        Limit 5
+$sql = "SELECT *
+        FROM sql5476262.hotels h
+        INNER JOIN sql5476262.TempPerms t
+        ON h.cityName = t.arrivalCity
+        ORDER BY t.primKey DESC
+        LIMIT 5
         ";
 
 $result = mysqli_query($conn, $sql);

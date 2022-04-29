@@ -3,8 +3,13 @@
 require 'includes/header.php';
 require 'includes/connection.php';
 
-$sql = "Select *
-        From sql5476262.weather";
+$sql = "SELECT *
+        FROM sql5476262.hotels h
+        INNER JOIN sql5476262.TempPerms t
+        ON h.cityName = t.arrivalCity
+        ORDER BY t.primKey DESC
+        LIMIT 5
+        ";
 
 $results = mysqli_query($conn, $sql);
 
