@@ -6,13 +6,42 @@ import pandas as pd
 from GetLocation import getLocation
 from MyRestaurantApiKey import get_restaurant_api_key
 
-key = get_restaurant_api_key()
+key = 'e0be4b2e6cmshf0bef987d2830e8p1c807bjsncc0a19294066'
 url = 'https://api.yelp.com/v3/businesses/search'
+headers = {
+    'Authorization': 'Bearer %s' % key
+}
 
-location = "Glassboro"
-term = "Food"
-radius = 6000
-limit = 5
+connection = mysql.connector.connect(
+    host="sql5.freemysqlhosting.net",
+    user="sql5476262",
+    password="ubHt8arqDy",
+    database="sql5476262"
+    )
+
+mycursor = connection.cursor()
+
+mycursor.execute("SELECT arrivalCity FROM TempPerms ORDER BY primKey DESC LIMIT 1")
+
+cityName = mycursor.fetchall()
+response = requests.get(url, headers=headers, params=parameters)
+
+parameters = {'location': cityName,
+             'term': 'Food',
+             'radius': 5000,
+             'limit': 5}
+
+def queryToDf(query):
+    results = {'Name': [],'Rating': [],'Pricing': [],'Reviews': []}
+    for q in query:
+        results['Name'].append(q['name'])
+        results['Rating'].append(q['rating'])
+        try:
+            results['Pricing'].append(len(q['price']))
+        except:
+            results['Pricing'].append(None)
+        results['Reviews'].append(q['review_count'])
+    return pd.DataFrame(results)
 
 def obtainQuery(location,term,radius,limit):
     parameters = {"location": location,
@@ -20,9 +49,8 @@ def obtainQuery(location,term,radius,limit):
                   "radius": radius,
                   "limit": limit}
 
-    headers = {
-        'Authorization': 'Bearer %s' % key
-    }
+df = queryToDf(response.json()['businesses'])
+    
 
     response = requests.get(url, headers=headers, params=parameters)
     json_data = response.json()
