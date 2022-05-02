@@ -3,18 +3,67 @@ import mysql.connector
 import json
 from mysql.connector import Error
 import pandas as pd
+from GetLocation import getLocation
 from MyRestaurantApiKey import get_restaurant_api_key
 
 key = get_restaurant_api_key()
 url = 'https://api.yelp.com/v3/businesses/search'
 
-//input into parameters
-parameters = {'location': '610 Newyork Rd, Glassboro, NJ',
-             'term': 'Food',
-             'radius': 6000,
-             'limit': 6}
+location = "Glassboro"
+term = "Food"
+radius = 6000
+limit = 5
 
-response = requests.get(url, headers=headers, params=parameters)
+def obtainQuery(location,term,radius,limit):
+    parameters = {"location": location,
+                  "term": term,
+                  "radius": radius,
+                  "limit": limit}
+
+    headers = {
+        'Authorization': 'Bearer %s' % key
+    }
+
+    response = requests.get(url, headers=headers, params=parameters)
+    json_data = response.json()
+
+    i = 0
+
+    while i < limit:
+        name = (json_data["data"]["body"]["searchResults"]["results"][i]["name"])
+        rating = (json_data["data"]["body"]["searchResults"]["results"][i]["rating"])
+        pricing = (json_data["data"]["body"]["searchResults"]["results"][i]["pricing"])
+        reviews = (json_data["data"]["body"]["searchResults"]["results"][i]["reviews"])
+        val = (name, rating, pricing, reviews, location)
+        i += 1
+        connect_to_db(val)
+
+id, cityName = getLocation()
+
+def connect_to_db(val):
+    try:
+        db = mysql.connector.connect(
+            host = "sql5.freemysqlhosting.net",
+            user = "sql5476262",
+            password = "ubHt8arqDy"
+        )
+
+        mycursor = db.cursor()
+
+        sql = "INSERT INTO sql5476262.restaurants(Name,Rating,Pricing,Reviews,location) VALUES (%s, %s, %s, %s, %s)"
+
+        mycursor.execute(sql, val)
+        db.commit()
+
+    except Error as e:
+        print(e.msg)
+
+    close_db(db)
+
+def close_db(db):
+    db.close()
+
+obtainQuery(id, term, radius, limit)
 
 def queryToDf(query):
     results = {'Name': [],'Rating': [],'Pricing': [],'Reviews': []}
