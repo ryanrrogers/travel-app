@@ -3,8 +3,13 @@
 require 'includes/header.php';
 require 'includes/connection.php';
 
-$sql = "Select *
-        From sql5476262.restaurants";
+$sql = "SELECT *
+        FROM sql5476262.restaurants h
+        INNER JOIN sql5476262.TempPerms t
+        ON h.cityName = t.arrivalCity
+        ORDER BY t.primKey DESC
+        LIMIT 5
+        ";
 
 $results = mysqli_query($conn, $sql);
 
@@ -27,29 +32,15 @@ else
             <th scope="col">Restaurant Name</th>
             <th scope="col">Pricing</th>
             <th scope="col">Rating</th>
-            <th scope="col"># of Reviews</th>
+            <th scope="col">Number of Reviews</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach ($m_data as $data): ?>
         <?php
-            $price = "$";
-            switch ($data['Pricing']) {
-                case 1:
-                    $price = "$";
-                    break;
-                case 2:
-                    $price = "$$";
-                    break;
-                case 3:
-                    $price = "$$$";
-                    break;
-            }
-        ?>
             <tr>
-                <th scope="row"></th>
                 <td><?= $data['Name']?></td>
-                <td><?= $price ?></td>
+                <td><?= $price[Pricing]</td>
                 <td><?= $data['Rating']?> / 5</td>
                 <td><?= $data['Reviews']?></td>
             </tr>
