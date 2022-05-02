@@ -28,7 +28,6 @@ else
 <table class ="table">
     <thead>
         <tr>
-            <th scope="col">#</th>
             <th scope="col">Restaurant Name</th>
             <th scope="col">Pricing</th>
             <th scope="col">Rating</th>
@@ -40,7 +39,7 @@ else
             <tr>
                 <td><?= $data['Name']?></td>
                 <td><?= $price['Pricing']?></td>
-                <td><?= $data['Rating']?> / 5</td>
+                <td><?= $data['Rating']?></td>
                 <td><?= $data['Reviews']?></td>
             </tr>
         <?php endforeach ?>
