@@ -35,7 +35,7 @@ parameters = {'location': cityName,
              'limit': 5}
 
 def queryToDf(query):
-    results = {'Name': [],'Rating': [],'Pricing': [],'Reviews': []}
+    results = {'Name': [],'Rating': [],'Pricing': [],'Reviews': [], 'City': []}
     for q in query:
         results['Name'].append(q['name'])
         results['Rating'].append(q['rating'])
@@ -44,6 +44,7 @@ def queryToDf(query):
         except:
             results['Pricing'].append(None)
         results['Reviews'].append(q['review_count'])
+        results['City'].append(cityName)
     return pd.DataFrame(results)
 
 df = queryToDf(response.json()['businesses'])

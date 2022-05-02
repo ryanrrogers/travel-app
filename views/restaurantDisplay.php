@@ -6,7 +6,7 @@ require 'includes/connection.php';
 $sql = "SELECT *
         FROM sql5476262.restaurants h
         INNER JOIN sql5476262.TempPerms t
-        ON h.cityName = t.arrivalCity
+        ON h.City = t.arrivalCity
         ORDER BY t.primKey DESC
         LIMIT 5
         ";
