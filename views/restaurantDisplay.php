@@ -37,10 +37,9 @@ else
     </thead>
     <tbody>
         <?php foreach ($m_data as $data): ?>
-        <?php
             <tr>
                 <td><?= $data['Name']?></td>
-                <td><?= $price[Pricing]</td>
+                <td><?= $price['Pricing']?></td>
                 <td><?= $data['Rating']?> / 5</td>
                 <td><?= $data['Reviews']?></td>
             </tr>
