@@ -4,11 +4,7 @@ require 'includes/header.php';
 require 'includes/connection.php';
 
 $sql = "SELECT *
-        FROM sql5476262.restaurants h
-        INNER JOIN sql5476262.TempPerms t
-        ON h.City = t.arrivalCity
-        ORDER BY t.primKey DESC
-        LIMIT 5
+        FROM sql5476262.restaurants
         ";
 
 $results = mysqli_query($conn, $sql);
@@ -32,15 +28,17 @@ else
             <th scope="col">Pricing</th>
             <th scope="col">Rating</th>
             <th scope="col">Number of Reviews</th>
+            <th scope="col">City</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach ($m_data as $data): ?>
             <tr>
                 <td><?= $data['Name']?></td>
-                <td><?= $price['Pricing']?></td>
+                <td><?= $data['Pricing']?></td>
                 <td><?= $data['Rating']?></td>
                 <td><?= $data['Reviews']?></td>
+                <td><?= $data['City']?></td>
             </tr>
         <?php endforeach ?>
     </tbody>
